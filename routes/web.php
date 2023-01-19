@@ -34,7 +34,10 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/posts', [PostController::class, 'index'])->name('posts');
+    #Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    #Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::resource('posts', PostController::class);
+
 
     Route::inertia('about', 'About')->name('about');
 });
