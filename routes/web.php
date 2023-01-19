@@ -35,4 +35,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts');
+
+    Route::inertia('about', 'About')->name('about');
 });

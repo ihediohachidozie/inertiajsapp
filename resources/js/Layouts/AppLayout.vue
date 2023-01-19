@@ -54,6 +54,9 @@ const logout = () => {
                                 <NavLink :href="route('posts')" :active="route().current('posts')">
                                     Posts
                                 </NavLink>
+                                <NavLink :href="route('about')" :active="route().current('about')">
+                                    About
+                                </NavLink>
                             </div>
                         </div>
 
@@ -199,6 +202,9 @@ const logout = () => {
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('posts')" :active="route().current('posts')">
                             Posts
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('about')" :active="route().current('about')">
+                            About
                         </ResponsiveNavLink>
                     </div>
 
