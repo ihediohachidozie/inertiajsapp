@@ -3,13 +3,18 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link, useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
+    post: Object,
     errors: Object,
 });
+/**
+ * const form = useForm({
+    id: props.post.id,
+    title: props.post.title,
+    description: props.post.description
+    })
 
-const form = useForm({
-    title: '',
-    description: ''
-})
+ */
+const form = useForm(props.post)
 
 
 </script>
@@ -20,7 +25,7 @@ const form = useForm({
     <AppLayout title="Create Posts">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                New Posts
+                Edit Posts
             </h2>
         </template>
 
@@ -29,7 +34,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
                     <div class="block p-6 rounded-lg shadow-lg bg-white">
-                        <form @submit.prevent="form.post(route('posts.store'))">
+                        <form @submit.prevent="form.put(route('posts.update', form.id))">
                             <div class="form-group mb-6">
                                 <input v-model="form.title" type="text"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
