@@ -58,4 +58,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getPermissionsAttribute()
+    {
+        return [
+            'posts_view' => in_array(($this->id), [1,2]),
+            'posts_manage' => $this->id === 1,
+        ];
+
+    }
 }
